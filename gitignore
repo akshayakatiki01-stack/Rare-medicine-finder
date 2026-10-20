@@ -1,0 +1,33 @@
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Node.js
+node_modules/
+backend/node_modules/
+npm-debug.log*
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+.flutter-coverage/
+pubspec.lock
+
+# IDE
+.vscode/
+.idea/
+
+# Python, if used later
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Operating system
+.DS_Store
+Thumbs.db

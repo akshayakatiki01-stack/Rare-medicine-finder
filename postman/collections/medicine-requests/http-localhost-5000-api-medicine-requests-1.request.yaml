@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:5000/api/medicine-requests
+description: ""
+url: http://localhost:5000/api/medicine-requests
+method: GET
+order: 2000

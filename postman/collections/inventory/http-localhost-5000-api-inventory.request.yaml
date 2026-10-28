@@ -1,0 +1,21 @@
+$kind: http-request
+name: http://localhost:5000/api/inventory
+description: ""
+url: http://localhost:5000/api/inventory
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"medicine\": \"6ae2679bac693c3f03823264\",\r
+
+    \  \"pharmacy\": \"6ae267a1ac693c3f03823265\",\r
+
+    \  \"price\": 500,\r
+
+    \  \"availabilityStatus\": \"unknown\",\r
+
+    \  \"quantity\": 0\r
+
+    }"
+order: 1000

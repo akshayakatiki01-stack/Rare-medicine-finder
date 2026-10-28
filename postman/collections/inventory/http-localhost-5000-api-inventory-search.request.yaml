@@ -1,0 +1,11 @@
+$kind: http-request
+name: http://localhost:5000/api/inventory/search
+description: ""
+url: http://localhost:5000/api/inventory/search?name=Test%20Medicine%20Alpha
+method: GET
+queryParams:
+  name: Test%20Medicine%20Alpha
+body:
+  type: json
+  content: ""
+order: 2000

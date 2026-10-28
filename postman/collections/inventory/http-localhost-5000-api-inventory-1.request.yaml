@@ -1,0 +1,6 @@
+$kind: http-request
+name: http://localhost:5000/api/inventory
+description: ""
+url: http://localhost:5000/api/inventory
+method: GET
+order: 3000

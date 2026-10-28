@@ -1,0 +1,25 @@
+$kind: http-request
+name: http://localhost:5000/api/pharmacies
+description: ""
+url: http://localhost:5000/api/pharmacies
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Demo Pharmacy\",\r
+
+    \  \"address\": \"123 Example Road\",\r
+
+    \  \"city\": \"Hyderabad\",\r
+
+    \  \"state\": \"Telangana\",\r
+
+    \  \"phone\": \"0000000000\",\r
+
+    \  \"isVerified\": false,\r
+
+    \  \"isHospitalPharmacy\": false\r
+
+    }"
+order: 1000

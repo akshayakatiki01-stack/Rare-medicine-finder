@@ -1,0 +1,25 @@
+$kind: http-request
+name: http://localhost:5000/api/medicine-requests
+description: ""
+url: http://localhost:5000/api/medicine-requests
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"medicineName\": \"Sample Rare Medicine\",\r
+
+    \  \"genericName\": \"Sample Generic\",\r
+
+    \  \"strength\": \"100 mg\",\r
+
+    \  \"dosageForm\": \"Tablet\",\r
+
+    \  \"city\": \"Guntur\",\r
+
+    \  \"contactEmail\": \"test@example.com\",\r
+
+    \  \"notes\": \"Sample request for testing\"\r
+
+    }"
+order: 1000

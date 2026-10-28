@@ -7,6 +7,7 @@ import connectDB from "./config/database.js";
 import medicineRoutes from "./routes/medicineRoutes.js";
 import pharmacyRoutes from "./routes/pharmacyRoutes.js";
 import inventoryRoutes from "./routes/inventoryRoutes.js";
+import medicineRequestRoutes from "./routes/medicineRequestRoutes.js";
 
 const currentFile = fileURLToPath(import.meta.url);
 const currentDirectory = path.dirname(currentFile);
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use("/api/medicines", medicineRoutes);
 app.use("/api/pharmacies", pharmacyRoutes);
 app.use("/api/inventory", inventoryRoutes);
+app.use("/api/medicine-requests", medicineRequestRoutes);
 
 app.get("/", (req, res) => {
   res.json({

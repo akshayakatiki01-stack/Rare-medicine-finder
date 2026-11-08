@@ -4,7 +4,7 @@ import Inventory from "../models/Inventory.js";
 
 const router = express.Router();
 
-// GET: Retrieve all inventory records
+// 1. GET: Retrieve all inventory records
 router.get("/", async (req, res) => {
   try {
     const inventory = await Inventory.find()
@@ -20,10 +20,12 @@ router.get("/", async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to retrieve inventory",
+      error: error.message,
     });
   }
 });
-// GET: Search inventory by medicine name
+
+// 2. GET: Search inventory by medicine name
 router.get("/search", async (req, res) => {
   try {
     const name = req.query.name?.trim();
@@ -45,7 +47,7 @@ router.get("/search", async (req, res) => {
     const Medicine = mongoose.model("Medicine");
 
     const medicines = await Medicine.find({
-      name: { $regex: name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), $options: "i" },
+      name: { $regex: name, $options: "i" },
     });
 
     if (medicines.length === 0) {
@@ -89,7 +91,7 @@ router.get("/search", async (req, res) => {
   }
 });
 
-// GET: Find inventory for a specific medicine
+// 3. GET: Find inventory for a specific medicine
 router.get("/medicine/:medicineId", async (req, res) => {
   try {
     const { medicineId } = req.params;
@@ -118,7 +120,40 @@ router.get("/medicine/:medicineId", async (req, res) => {
   }
 });
 
-// POST: Add an inventory record
+// 4. GET: Find inventory by inventory ID
+router.get("/:id", async (req, res) => {
+  try {
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid inventory ID",
+      });
+    }
+
+    const inventory = await Inventory.findById(req.params.id)
+      .populate("medicine")
+      .populate("pharmacy");
+
+    if (!inventory) {
+      return res.status(404).json({
+        success: false,
+        message: "Inventory record not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: inventory,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Failed to retrieve inventory",
+    });
+  }
+});
+
+// 5. POST: Add an inventory record
 router.post("/", async (req, res) => {
   try {
     const {
@@ -127,8 +162,6 @@ router.post("/", async (req, res) => {
       price,
       availabilityStatus,
       quantity,
-      verified,
-      source,
     } = req.body;
 
     if (
@@ -141,7 +174,11 @@ router.post("/", async (req, res) => {
       });
     }
 
-    if (price === undefined || !Number.isFinite(price) || price < 0) {
+    if (
+      price === undefined ||
+      !Number.isFinite(price) ||
+      price < 0
+    ) {
       return res.status(400).json({
         success: false,
         message: "Price must be a non-negative number",
@@ -169,7 +206,6 @@ router.post("/", async (req, res) => {
       price,
       availabilityStatus,
       quantity,
-      // Do not allow clients to self-verify inventory.
       verified: false,
       source: "sample_data",
       lastUpdated: new Date(),
@@ -202,4 +238,103 @@ router.post("/", async (req, res) => {
   }
 });
 
+// 6. PUT: Update inventory by ID
+router.put("/:id", async (req, res) => {
+  try {
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid inventory ID",
+      });
+    }
+
+    const allowedFields = [
+      "price",
+      "availabilityStatus",
+      "quantity",
+    ];
+
+    const updateData = {};
+
+    for (const field of allowedFields) {
+      if (req.body[field] !== undefined) {
+        updateData[field] = req.body[field];
+      }
+    }
+
+    if (Object.keys(updateData).length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: "No valid fields provided for update",
+      });
+    }
+
+    const inventory = await Inventory.findByIdAndUpdate(
+      req.params.id,
+      {
+        ...updateData,
+        lastUpdated: new Date(),
+      },
+      {
+        new: true,
+        runValidators: true,
+      }
+    )
+      .populate("medicine")
+      .populate("pharmacy");
+
+    if (!inventory) {
+      return res.status(404).json({
+        success: false,
+        message: "Inventory record not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Inventory updated successfully",
+      data: inventory,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: "Could not update inventory",
+      error: error.message,
+    });
+  }
+});
+
+// 7. DELETE: Delete inventory by ID
+router.delete("/:id", async (req, res) => {
+  try {
+    if (!mongoose.isValidObjectId(req.params.id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid inventory ID",
+      });
+    }
+
+    const inventory = await Inventory.findByIdAndDelete(req.params.id);
+
+    if (!inventory) {
+      return res.status(404).json({
+        success: false,
+        message: "Inventory record not found",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Inventory deleted successfully",
+      data: inventory,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Could not delete inventory",
+    });
+  }
+});
+
 export default router;
+

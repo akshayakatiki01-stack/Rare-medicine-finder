@@ -1,0 +1,810 @@
+.app {
+  width: 100%;
+  overflow: hidden;
+}
+
+.navbar {
+  height: 75px;
+  padding: 0 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 800;
+  color: #087f70;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #087f70;
+}
+
+.nav-button {
+  background: #087f70;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hero {
+  min-height: 520px;
+  padding: 70px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: linear-gradient(120deg, #e8faf6, #f3f9ff);
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.badge {
+  background: #d1fae5;
+  color: #087f70;
+  padding: 9px 16px;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-size: 55px;
+  line-height: 1.2;
+  color: #163b40;
+  margin: 25px 0;
+}
+
+.hero h1 span {
+  color: #079b83;
+}
+
+.hero-content > p {
+  color: #64748b;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.search-box {
+  display: flex;
+  margin-top: 30px;
+  background: white;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 15px;
+  font-size: 15px;
+}
+
+.search-box button {
+  border: none;
+  background: #087f70;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.search-box button:hover,
+.nav-button:hover {
+  background: #065f55;
+}
+
+.small-text {
+  font-size: 13px !important;
+  margin-top: 18px;
+}
+
+.hero-image {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #c9f0e7;
+  border-radius: 50%;
+}
+
+.medical-card {
+  width: 240px;
+  padding: 35px 20px;
+  background: white;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.medical-icon {
+  font-size: 65px;
+}
+
+.medical-card h2 {
+  color: #087f70;
+}
+
+.medical-card p {
+  color: #64748b;
+}
+
+.features {
+  padding: 75px 8%;
+  text-align: center;
+}
+
+.features > h2 {
+  color: #163b40;
+  font-size: 32px;
+}
+
+.section-description {
+  color: #64748b;
+  margin-bottom: 45px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.feature-card {
+  padding: 30px 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+  font-size: 40px;
+}
+
+.feature-card h3 {
+  color: #087f70;
+}
+
+.feature-card p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+footer {
+  background: #163b40;
+  color: white;
+  text-align: center;
+  padding: 35px;
+}
+
+footer p {
+  color: #cbd5e1;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image {
+    width: 280px;
+    height: 280px;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .search-box input {
+    width: 100px;
+  }
+}
+.medicine-results {
+  margin-top: 25px;
+}
+
+.medicine-card {
+  background: white;
+  padding: 20px;
+  margin-top: 12px;
+  border-radius: 12px;
+  border: 1px solid #d1e7e2;
+  text-align: left;
+}
+
+.medicine-card h3 {
+  color: #087f70;
+  margin-bottom: 10px;
+}
+
+.medicine-card p {
+  margin: 6px 0;
+  color: #64748b;
+}
+
+.error-message {
+  color: #dc2626;
+  margin-top: 15px;
+}
+/* Pharmacy Directory */
+
+.pharmacy-section {
+padding: 75px 8%;
+background: #f0fdfa;
+text-align: center;
+}
+
+.pharmacy-section h2 {
+color: #163b40;
+font-size: 32px;
+margin-bottom: 12px;
+}
+
+.pharmacy-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+margin-top: 40px;
+}
+
+.pharmacy-card {
+background: white;
+padding: 25px;
+border-radius: 15px;
+border: 1px solid #d1e7e2;
+text-align: left;
+transition: 0.3s;
+}
+
+.pharmacy-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.pharmacy-card h3 {
+color: #087f70;
+margin-bottom: 15px;
+}
+
+.pharmacy-card p {
+color: #64748b;
+margin: 10px 0;
+line-height: 1.5;
+}
+
+.pharmacy-status {
+display: inline-block;
+padding: 6px 12px;
+background: #fef3c7;
+color: #92400e;
+border-radius: 20px;
+font-size: 12px;
+margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+.pharmacy-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (max-width: 600px) {
+.pharmacy-grid {
+grid-template-columns: 1fr;
+}
+}
+/* Inventory Section */
+.inventory-section {
+  padding: 75px 8%;
+  background: #ffffff;
+  text-align: center;
+}
+
+.inventory-section h2 {
+  color: #163b40;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.inventory-card {
+  background: #f8fffd;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #d1e7e2;
+  text-align: left;
+  transition: 0.3s;
+}
+
+.inventory-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.inventory-card h3 {
+  color: #087f70;
+  margin-bottom: 18px;
+}
+
+.inventory-card p {
+  color: #64748b;
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.inventory-status {
+  display: inline-block;
+  padding: 7px 14px;
+  background: #dcfce7;
+  color: #166534;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-top: 10px;
+  text-transform: capitalize;
+}
+
+.inventory-verification {
+  color: #b45309 !important;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+@media (max-width: 900px) {
+  .inventory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .inventory-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Medicine Request Section */
+.request-section {
+padding: 75px 8%;
+background: #f0fdfa;
+text-align: center;
+}
+
+.request-section h2 {
+color: #163b40;
+font-size: 32px;
+margin-bottom: 12px;
+}
+
+.request-form {
+max-width: 650px;
+margin: 35px auto 0;
+padding: 30px;
+background: white;
+border-radius: 15px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 18px;
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.request-form input,
+.request-form textarea {
+width: 100%;
+padding: 14px;
+border: 1px solid #d1e7e2;
+border-radius: 8px;
+font-size: 14px;
+outline: none;
+}
+
+.request-form input:focus,
+.request-form textarea:focus {
+border-color: #087f70;
+}
+
+.request-form textarea {
+grid-column: 1 / -1;
+min-height: 100px;
+resize: vertical;
+}
+
+.request-form button {
+grid-column: 1 / -1;
+padding: 14px;
+background: #087f70;
+color: white;
+border: none;
+border-radius: 8px;
+font-size: 15px;
+cursor: pointer;
+}
+
+.request-form button:hover {
+background: #06685d;
+}
+
+.request-form button:disabled {
+opacity: 0.6;
+cursor: not-allowed;
+}
+
+.success-message {
+grid-column: 1 / -1;
+color: #15803d;
+font-weight: bold;
+}
+
+@media (max-width: 600px) {
+.request-form {
+grid-template-columns: 1fr;
+padding: 20px;
+}
+
+.request-form textarea,
+.request-form button,
+.success-message {
+grid-column: 1;
+}
+}
+/* Emergency Assistance */
+.emergency-section {
+padding: 55px 8%;
+background: #fff1f2;
+text-align: center;
+border-bottom: 1px solid #fecdd3;
+}
+
+.emergency-content {
+max-width: 850px;
+margin: auto;
+}
+
+.emergency-badge {
+display: inline-block;
+background: #fee2e2;
+color: #b91c1c;
+padding: 9px 18px;
+border-radius: 25px;
+font-weight: bold;
+font-size: 13px;
+}
+
+.emergency-content h2 {
+color: #991b1b;
+font-size: 34px;
+margin: 20px 0 12px;
+}
+
+.emergency-content p {
+color: #64748b;
+line-height: 1.6;
+}
+
+.emergency-buttons {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 15px;
+margin-top: 25px;
+}
+
+.emergency-call-button,
+.emergency-guidance-button {
+padding: 15px 22px;
+border-radius: 9px;
+text-decoration: none;
+font-weight: bold;
+transition: 0.3s;
+}
+
+.emergency-call-button {
+background: #dc2626;
+color: white;
+}
+
+.emergency-call-button:hover {
+background: #991b1b;
+}
+
+.emergency-guidance-button {
+background: white;
+color: #991b1b;
+border: 1px solid #fecaca;
+}
+
+.emergency-guidance-button:hover {
+background: #fee2e2;
+}
+
+.emergency-note {
+margin-top: 20px;
+font-size: 13px;
+}
+
+/* Emergency Guidance */
+.emergency-guidance {
+padding: 65px 8%;
+background: #ffffff;
+text-align: center;
+}
+
+.emergency-guidance h2 {
+color: #163b40;
+font-size: 30px;
+margin-bottom: 35px;
+}
+
+.guidance-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 25px;
+max-width: 1000px;
+margin: auto;
+}
+
+.guidance-card {
+padding: 25px;
+background: #f8fafc;
+border: 1px solid #e2e8f0;
+border-radius: 14px;
+text-align: left;
+}
+
+.guidance-card h3 {
+color: #087f70;
+margin-bottom: 18px;
+}
+
+.guidance-card ul {
+padding-left: 22px;
+}
+
+.guidance-card li {
+color: #475569;
+margin-bottom: 12px;
+line-height: 1.5;
+}
+
+.medical-disclaimer {
+max-width: 850px;
+margin: 30px auto 0;
+color: #b45309;
+font-size: 13px;
+line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+.emergency-content h2 {
+font-size: 26px;
+}
+
+.emergency-buttons {
+flex-direction: column;
+}
+
+.emergency-call-button,
+.emergency-guidance-button {
+display: block;
+}
+
+.guidance-grid {
+grid-template-columns: 1fr;/* Fix Emergency Sections Layout */
+.emergency-section,
+.emergency-guidance {
+display: block;
+width: 100%;
+box-sizing: border-box;
+position: relative;
+clear: both;
+float: none;
+}
+
+.emergency-section {
+padding: 55px 8%;
+background: #fff1f2;
+}
+
+.emergency-guidance {
+padding: 65px 8%;
+background: #ffffff;
+}
+
+.emergency-content {
+width: 100%;
+max-width: 850px;
+margin: 0 auto;
+}
+
+.guidance-grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 25px;
+width: 100%;
+max-width: 1000px;
+margin: 30px auto;
+}
+
+.guidance-card {
+min-width: 0;
+box-sizing: border-box;
+}
+
+.hero {
+display: grid;
+grid-template-columns: 1fr 1fr;
+width: 100%;
+box-sizing: border-box;
+clear: both;
+}
+
+@media (max-width: 768px) {
+.guidance-grid {
+grid-template-columns: 1fr;
+}
+
+.hero {
+grid-template-columns: 1fr;
+}
+}
+/* Emergency Hospital Finder */
+.hospital-section {
+  padding: 75px 8%;
+  background: #f0fdfa;
+  text-align: center;
+}
+
+.hospital-section h2 {
+  color: #163b40;
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.hospital-search {
+  width: 100%;
+  max-width: 500px;
+  padding: 14px;
+  margin: 25px auto;
+  border: 1px solid #d1e7e2;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.hospital-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.hospital-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #d1e7e2;
+  text-align: left;
+}
+
+.hospital-card h3 {
+  color: #087f70;
+  margin-bottom: 18px;
+}
+
+.hospital-card p,
+.hospital-card li {
+  color: #64748b;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.hospital-card ul {
+  padding-left: 22px;
+}
+
+.hospital-status {
+  display: inline-block;
+  padding: 7px 12px;
+  margin-top: 12px;
+  border-radius: 20px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 13px;
+}
+
+.hospital-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.hospital-buttons a {
+  padding: 11px 15px;
+  background: #087f70;
+  color: white;
+  border-radius: 7px;
+  text-decoration: none;
+}
+
+.hospital-buttons a:hover {
+  background: #06685d;
+}
+
+@media (max-width: 700px) {
+  .hospital-grid {
+    grid-template-columns: 1fr;
+  }
+}
+}
+}
+.connection-status {
+padding: 10px 20px;
+text-align: right;
+background: #f8fafc;
+font-size: 14px;
+font-weight: 600;
+}
+
+.online-status {
+color: #15803d;
+}
+
+.offline-status {
+color: #dc2626;
+}
+.cache-info {
+  font-size: 13px;
+  color: #64748b;
+  margin: 10px 0 18px;
+  padding: 9px 12px;
+  background: #f1f5f9;
+  border-radius: 8px;
+}

@@ -1,0 +1,25 @@
+$kind: http-request
+name: http://localhost:5000/api/medicines
+description: ""
+url: http://localhost:5000/api/medicines
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Test Medicine Alpha\",\r
+
+    \  \"genericName\": \"Example Compound\",\r
+
+    \  \"brand\": \"Demo Brand\",\r
+
+    \  \"strength\": \"100 mg\",\r
+
+    \  \"dosageForm\": \"Tablet\",\r
+
+    \  \"description\": \"Fictional record for API testing\",\r
+
+    \  \"requiresPrescription\": true\r
+
+    }"
+order: 1000

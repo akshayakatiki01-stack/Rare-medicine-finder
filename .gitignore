@@ -29,3 +29,9 @@ venv/
 # Operating system
 .DS_Store
 Thumbs.db
+
+# Local Postman workspace settings
+.postman/
+# Generated frontend build files
+web-frontend/dev-dist/
+web-frontend/dist/
